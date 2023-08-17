@@ -1,0 +1,36 @@
+<%= form_with(model: coin, local: true) do |form| %>
+  <% if coin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(coin.errors.count, "error") %> prohibited this coin from being saved:</h2>
+
+      <ul>
+      <% coin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="text-align: center;" class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div style="text-align: center;" class="field">
+    <%= form.label :acronym %>
+    <%= form.text_field :acronym %>
+  </div>
+
+  <div style="text-align: center;" class="field">
+   <% if coin.yrl_image.present? %>
+    <%= image_tag coin.yrl_image, size: "15x15" %>
+  <% end %>
+    <%= form.label :yrl_image %>
+    <%= form.text_field :yrl_image %>
+    
+  </div>
+
+  <div style="text-align: center;" class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

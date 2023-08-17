@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<div style="text-align: center;">
+  <% if @coin.yrl_image.present? %>
+    <%= image_tag @coin.yrl_image, size: "50x50" %>
+  <% end %>
+</div>
+
+<div style="text-align: center;">
+  <strong>Description:</strong>
+  <%= @coin.description %>  
+</div>
+
+
+<div style="text-align: center;">
+  <strong>Acronym:</strong>
+  <%= @coin.acronym %>
+</div>
+
+<div style="text-align: center;">
+  <strong>Url image:</strong>
+  <%= @coin.yrl_image %>
+</div>
+
+<div style="text-align: center;">
+  <%= link_to 'Edit', edit_coin_path(@coin) %> |
+  <%= link_to 'Back', coins_path %>
+</div>
